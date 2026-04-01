@@ -12,10 +12,9 @@ import { Steps, Callout } from 'nextra/components'
 
 ## 사이클 전체 그림
 
-```
-스텝 1             스텝 2            스텝 3              스텝 4
-Lovable ─────────→ DB 연동 ────────→ 구글 로그인 ──────→ GitHub → Claude Code → 배포
-(프로토타입 만들기)  (데이터 영구 저장)   (사용자 인증 추가)    (코드 개선 → 배포 → 교차 체험)
+```mermaid
+flowchart LR
+    A["스텝 1\nLovable\n프로토타입 만들기"] --> B["스텝 2\nDB 연동\n데이터 영구 저장"] --> C["스텝 3\n구글 로그인\n사용자 인증 추가"] --> D["스텝 4\nGitHub → Claude Code\n코드 개선 → 배포"]
 ```
 
 <Callout type="info">

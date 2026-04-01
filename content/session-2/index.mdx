@@ -12,10 +12,9 @@ import { Steps, Callout } from 'nextra/components'
 
 ## 사이클은 동일합니다
 
-```
-스텝 1              스텝 2              스텝 3              스텝 4
-문제 탐색 ─────────→ DB + 기능 ────────→ Claude Code ──────→ 한 단계 더
-+ Lovable MVP       + 1차 배포           + 2차 배포           + 최종 배포
+```mermaid
+flowchart LR
+    A["스텝 1\n문제 탐색\n+ Lovable MVP"] --> B["스텝 2\nDB + 기능\n+ 1차 배포"] --> C["스텝 3\nClaude Code\n+ 2차 배포"] --> D["스텝 4\n한 단계 더\n+ 최종 배포"]
 ```
 
 <Callout type="info">

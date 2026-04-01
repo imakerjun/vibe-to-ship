@@ -61,14 +61,22 @@ import { Callout } from 'nextra/components'
 | 테스트·빌드·배포 | **Claude Code** | 터미널 명령어를 직접 실행 |
 | 맥락 관리 | **Claude Code (CLAUDE.md)** | 프로젝트 규칙을 파일로 유지 |
 
-```
-                    Lovable                           Claude Code
-                ┌─────────────┐                   ┌─────────────────┐
-  아이디어 ────→│ 프로토타입    │────→ GitHub ────→│ 정밀한 개선      │────→ 배포
-                │ DB + 인증    │                   │ 기능 추가        │
-                │ 1차 배포     │                   │ 코드 품질 개선   │
-                └─────────────┘                   └─────────────────┘
-                   빠르게 만들기                       정밀하게 다듬기
+```mermaid
+flowchart LR
+    A["💡 아이디어"] --> B
+
+    subgraph Lovable["Lovable — 빠르게 만들기"]
+        B["프로토타입"] --> C["DB + 인증"] --> D["1차 배포"]
+    end
+
+    D --> E["GitHub"]
+    E --> F
+
+    subgraph ClaudeCode["Claude Code — 정밀하게 다듬기"]
+        F["정밀한 개선"] --> G["기능 추가"] --> H["코드 품질 개선"]
+    end
+
+    H --> I["🚀 배포"]
 ```
 
 <Callout type="info">
