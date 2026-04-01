@@ -1,0 +1,83 @@
+---
+title: '왜 Claude Code인가'
+description: Lovable과 Claude Code의 역할 비교 — 공식 문서 기반
+---
+
+import { Callout } from 'nextra/components'
+
+# 왜 Claude Code인가
+
+이 워크숍에서는 **Lovable**과 **Claude Code**, 두 가지 AI 도구를 함께 사용합니다.
+각 도구의 공식 문서를 기반으로, 왜 두 도구가 함께 필요한지 정리합니다.
+
+## 한 줄 요약
+
+> **Lovable은 빠르게 만들고, Claude Code는 정밀하게 다듬는다.**
+
+## Lovable: 대화로 앱을 만드는 플랫폼
+
+[Lovable 공식 문서](https://docs.lovable.dev)에 따르면, Lovable은 자연어로 풀스택 웹 애플리케이션을 만드는 AI 개발 플랫폼입니다.
+
+**Lovable이 잘하는 것:**
+
+- **제로에서 동작하는 앱까지** — 프롬프트 한 줄이면 프론트엔드, 백엔드, DB, 인증, 배포까지 갖춘 앱이 만들어집니다
+- **Lovable Cloud** — 별도 설정 없이 PostgreSQL DB, 구글 로그인, 파일 스토리지를 대화만으로 연결합니다
+- **즉시 배포** — Publish 버튼 하나로 누구나 접속할 수 있는 URL이 생성됩니다
+- **코드 소유권** — 생성된 코드는 100% 사용자의 것이며, GitHub으로 내보낼 수 있습니다
+
+**Lovable의 한계:**
+
+- **React + Tailwind + Vite 전용** — 다른 프레임워크(Next.js, Vue, Angular 등)는 지원하지 않습니다
+- **기존 코드베이스 불러오기 불가** — 이미 있는 프로젝트를 Lovable로 가져올 수 없습니다
+- **프롬프트 기반 수정만 가능** — 파일을 직접 열어서 원하는 줄만 정밀하게 수정하는 것이 어렵습니다
+- **긴 대화에서 맥락 손실** — 대화가 길어지면 초반에 결정한 내용을 놓칠 수 있습니다
+
+## Claude Code: 터미널에서 코드를 직접 다루는 AI
+
+[Claude Code 공식 문서](https://docs.anthropic.com/en/docs/claude-code/overview)에 따르면, Claude Code는 코드베이스를 직접 읽고, 수정하고, 명령어를 실행하는 에이전틱(agentic) 코딩 도구입니다.
+
+**Claude Code가 잘하는 것:**
+
+- **기존 코드베이스에서 작업** — 어떤 프로젝트든 폴더를 열면 바로 파일을 읽고 수정합니다
+- **언어·프레임워크 무관** — JavaScript, Python, Go, Rust 등 어떤 언어든 다룹니다
+- **정밀한 제어** — 특정 파일의 특정 줄을 수정하고, 테스트를 돌리고, 빌드 에러를 자동으로 해결합니다
+- **CLAUDE.md로 맥락 관리** — 프로젝트 루트에 CLAUDE.md 파일을 두면, 매 세션마다 반복 설명하지 않아도 프로젝트 규칙을 기억합니다
+- **터미널 도구 연동** — git, npm, 빌드 도구 등 개발 환경의 모든 명령어를 직접 실행합니다
+- **멀티 에이전트** — 여러 하위 작업을 동시에 진행하는 에이전트 팀 기능을 제공합니다
+
+**Claude Code의 한계:**
+
+- **제로에서 앱 생성은 Lovable보다 느림** — 처음부터 앱을 만드는 속도는 Lovable이 압도적입니다
+- **DB·인증 자동 연동 없음** — 인프라 설정을 직접 해야 합니다 (Lovable Cloud처럼 대화 한 줄로 DB가 생기지 않습니다)
+- **Pro 이상 유료 플랜 필요** — 무료 Claude.ai 플랜으로는 사용할 수 없습니다
+
+## 왜 함께 쓰는가
+
+| 단계 | 도구 | 이유 |
+|------|------|------|
+| 프로토타입 만들기 | **Lovable** | 프롬프트 한 줄로 동작하는 앱이 나옴 |
+| DB + 인증 연결 | **Lovable Cloud** | 별도 설정 없이 대화만으로 완료 |
+| 코드 개선·커스터마이징 | **Claude Code** | 파일 단위로 정밀하게 수정 가능 |
+| 테스트·빌드·배포 | **Claude Code** | 터미널 명령어를 직접 실행 |
+| 맥락 관리 | **Claude Code (CLAUDE.md)** | 프로젝트 규칙을 파일로 유지 |
+
+```
+                    Lovable                           Claude Code
+                ┌─────────────┐                   ┌─────────────────┐
+  아이디어 ────→│ 프로토타입    │────→ GitHub ────→│ 정밀한 개선      │────→ 배포
+                │ DB + 인증    │                   │ 기능 추가        │
+                │ 1차 배포     │                   │ 코드 품질 개선   │
+                └─────────────┘                   └─────────────────┘
+                   빠르게 만들기                       정밀하게 다듬기
+```
+
+<Callout type="info">
+**핵심 포인트**: 두 도구는 경쟁이 아니라 **보완** 관계입니다.
+Lovable로 빠르게 시작하고, GitHub으로 코드를 가져온 뒤, Claude Code로 원하는 만큼 발전시키는 것이 이 워크숍의 풀사이클입니다.
+</Callout>
+
+## 더 알아보기
+
+- [Lovable 공식 문서](https://docs.lovable.dev)
+- [Claude Code 공식 문서](https://docs.anthropic.com/en/docs/claude-code/overview)
+- [Claude Code 설치 가이드](/reference/claude-code-install)

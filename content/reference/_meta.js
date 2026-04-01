@@ -1,3 +1,5 @@
 export default {
-  index: '도구 가이드'
+  index: '도구 가이드',
+  'why-claude-code': '왜 Claude Code인가',
+  'claude-code-install': 'Claude Code 설치 가이드'
 }

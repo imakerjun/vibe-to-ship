@@ -1,0 +1,42 @@
+---
+title: '스텝 2: DB + 기능 확장 + 배포'
+description: Lovable Cloud로 DB를 연결하고 기능을 추가하고 1차 배포한다
+---
+
+import { Callout } from 'nextra/components'
+
+# 스텝 2: DB + 기능 확장 + 배포 (50분)
+
+세션 1의 스텝 2~3과 동일한 흐름입니다. Lovable Cloud로 DB와 구글 로그인을 연결하고, 1차 배포까지 합니다.
+
+## DB 연동 프롬프트 가이드
+
+```
+Lovable Cloud를 사용해서 데이터를 저장해줘.
+
+1. {저장할 데이터} 테이블 생성
+2. 현재 하드코딩된 데이터를 DB에서 가져오도록 변경
+3. {사용자 액션}하면 DB에 저장되게 해줘
+4. 새로고침해도 데이터가 유지되어야 해
+```
+
+## 진행 순서
+
+1. DB 연동 (15분)
+2. 구글 로그인 추가 (10분)
+3. 추가 기능 요청 1~2건 (10분)
+4. 1차 배포 — Lovable Publish (5분)
+5. 동작 확인 (10분)
+
+<Callout type="info">
+**막히면 세션 1 문서를 다시 보세요.**
+[스텝 2: DB 연동](/session-1/step-2-db)과 [스텝 3: 구글 로그인](/session-1/step-3-google-login)의 프롬프트 구조를 참고하면 됩니다.
+</Callout>
+
+## 확인 포인트
+
+> 1차 배포된 URL에서 데이터가 저장/유지되면 스텝 2 완료입니다.
+
+---
+
+다음 → [스텝 3: Claude Code로 개선 + 배포](/session-2/step-3-claude-code)
