@@ -3,7 +3,7 @@ title: '세션 2: 내 업무 앱 만들기'
 description: 세션 1에서 익힌 풀사이클을 내 업무 과제에 적용한다
 ---
 
-import { Steps, Callout } from 'nextra/components'
+import { Steps, Callout, Mermaid } from 'nextra/components'
 
 # 세션 2: 내 업무 앱 만들기 (13:00~18:00)
 
@@ -12,10 +12,16 @@ import { Steps, Callout } from 'nextra/components'
 
 ## 사이클은 동일합니다
 
-```mermaid
-flowchart LR
-    A["스텝 1\n문제 탐색\n+ Lovable MVP"] --> B["스텝 2\nDB + 기능\n+ 1차 배포"] --> C["스텝 3\nClaude Code\n+ 2차 배포"] --> D["스텝 4\n한 단계 더\n+ 최종 배포"]
-```
+<Mermaid chart={`flowchart LR
+    A["스텝 1\\n문제 탐색\\nLovable MVP"] --> B["스텝 2\\nDB + 기능\\n1차 배포"]
+    B --> C["스텝 3\\nClaude Code\\n2차 배포"]
+    C --> D["스텝 4\\n한 단계 더\\n최종 배포"]
+
+    style A fill:#fef3c7,stroke:#f59e0b
+    style B fill:#fef3c7,stroke:#f59e0b
+    style C fill:#dbeafe,stroke:#3b82f6
+    style D fill:#d1fae5,stroke:#10b981
+`} />
 
 <Callout type="info">
 세션 1과 다른 점은 딱 하나 — **프롬프트를 직접 작성**합니다.

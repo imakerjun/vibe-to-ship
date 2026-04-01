@@ -3,7 +3,7 @@ title: vibe-to-ship
 description: 바이브코딩에서 배포까지 — AI 풀사이클 워크숍
 ---
 
-import { Steps, Callout, Cards } from 'nextra/components'
+import { Steps, Callout, Cards, Mermaid } from 'nextra/components'
 
 # vibe-to-ship
 
@@ -21,10 +21,20 @@ import { Steps, Callout, Cards } from 'nextra/components'
 
 ## 오늘의 사이클
 
-```mermaid
-flowchart LR
-    A["Lovable\n(프로토타입)"] --> B["DB 연동"] --> C["구글 로그인"] --> D["GitHub"] --> E["Claude Code\n(개선)"] --> F["배포"]
-```
+<Mermaid chart={`flowchart LR
+    A["Lovable\\n프로토타입"] --> B["DB\\n연동"]
+    B --> C["구글\\n로그인"]
+    C --> D["GitHub"]
+    D --> E["Claude Code\\n개선"]
+    E --> F["🚀\\n배포"]
+
+    style A fill:#fef3c7,stroke:#f59e0b
+    style B fill:#fef3c7,stroke:#f59e0b
+    style C fill:#fef3c7,stroke:#f59e0b
+    style D fill:#e0e7ff,stroke:#6366f1
+    style E fill:#dbeafe,stroke:#3b82f6
+    style F fill:#d1fae5,stroke:#10b981
+`} />
 
 <Steps>
 

@@ -3,7 +3,7 @@ title: '세션 1: 풀사이클 체험'
 description: 가이드를 따라 Lovable → DB → 구글 로그인 → Claude Code → 배포 사이클을 한 바퀴 돈다
 ---
 
-import { Steps, Callout } from 'nextra/components'
+import { Steps, Callout, Mermaid } from 'nextra/components'
 
 # 세션 1: 풀사이클 체험 (09:00~12:00)
 
@@ -12,10 +12,16 @@ import { Steps, Callout } from 'nextra/components'
 
 ## 사이클 전체 그림
 
-```mermaid
-flowchart LR
-    A["스텝 1\nLovable\n프로토타입 만들기"] --> B["스텝 2\nDB 연동\n데이터 영구 저장"] --> C["스텝 3\n구글 로그인\n사용자 인증 추가"] --> D["스텝 4\nGitHub → Claude Code\n코드 개선 → 배포"]
-```
+<Mermaid chart={`flowchart LR
+    A["스텝 1\\nLovable\\n프로토타입"] --> B["스텝 2\\nDB 연동\\n데이터 저장"]
+    B --> C["스텝 3\\n구글 로그인\\n사용자 인증"]
+    C --> D["스텝 4\\nClaude Code\\n개선 + 배포"]
+
+    style A fill:#fef3c7,stroke:#f59e0b
+    style B fill:#fef3c7,stroke:#f59e0b
+    style C fill:#fef3c7,stroke:#f59e0b
+    style D fill:#dbeafe,stroke:#3b82f6
+`} />
 
 <Callout type="info">
 각 스텝이 끝날 때마다 **확인 포인트**가 있습니다.

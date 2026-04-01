@@ -3,7 +3,7 @@ title: '왜 Claude Code인가'
 description: Lovable과 Claude Code의 역할 비교 — 공식 문서 기반
 ---
 
-import { Callout } from 'nextra/components'
+import { Callout, Mermaid } from 'nextra/components'
 
 # 왜 Claude Code인가
 
@@ -61,23 +61,20 @@ import { Callout } from 'nextra/components'
 | 테스트·빌드·배포 | **Claude Code** | 터미널 명령어를 직접 실행 |
 | 맥락 관리 | **Claude Code (CLAUDE.md)** | 프로젝트 규칙을 파일로 유지 |
 
-```mermaid
-flowchart LR
-    A["💡 아이디어"] --> B
+<Mermaid chart={`flowchart LR
+    A["💡 아이디어"] --> B["프로토타입"]
+    B --> C["DB + 인증"]
+    C --> D["GitHub"]
+    D --> E["코드 개선"]
+    E --> F["🚀 배포"]
 
-    subgraph Lovable["Lovable — 빠르게 만들기"]
-        B["프로토타입"] --> C["DB + 인증"] --> D["1차 배포"]
-    end
-
-    D --> E["GitHub"]
-    E --> F
-
-    subgraph ClaudeCode["Claude Code — 정밀하게 다듬기"]
-        F["정밀한 개선"] --> G["기능 추가"] --> H["코드 품질 개선"]
-    end
-
-    H --> I["🚀 배포"]
-```
+    style A fill:#f9f9f9,stroke:#999
+    style B fill:#fef3c7,stroke:#f59e0b
+    style C fill:#fef3c7,stroke:#f59e0b
+    style D fill:#e0e7ff,stroke:#6366f1
+    style E fill:#dbeafe,stroke:#3b82f6
+    style F fill:#d1fae5,stroke:#10b981
+`} />
 
 <Callout type="info">
 **핵심 포인트**: 두 도구는 경쟁이 아니라 **보완** 관계입니다.
