@@ -1,0 +1,70 @@
+/* Brand lockup */
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.375rem;
+  background: #6366f1;
+  color: white;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-text strong {
+  font-size: 0.9375rem;
+}
+
+.brand-text small {
+  font-size: 0.6875rem;
+  opacity: 0.6;
+}
+
+/* Footer */
+.site-footer .footer-copy {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.site-footer .footer-copy span {
+  opacity: 0.6;
+}
+
+/* Step tools badge */
+.step-tools {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Workshop narrative */
+.workshop-narrative {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+/* Prep checklist */
+.workshop-prep {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--nextra-border-color);
+}
