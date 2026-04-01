@@ -1,5 +1,5 @@
 import { Footer, Layout, Navbar, ThemeSwitch } from 'nextra-theme-docs'
-import { Head } from 'nextra/components'
+import { Head, Search } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
 import './global.css'
@@ -50,6 +50,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           docsRepositoryBase="https://github.com/imakerjun/vibe-to-ship/tree/main"
           feedback={{ content: null }}
           editLink=""
+          search={<Search placeholder="문서 검색" />}
           toc={{ title: '목차', backToTop: null }}
           sidebar={{ defaultMenuCollapseLevel: 2 }}
         >
