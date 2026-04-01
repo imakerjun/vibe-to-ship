@@ -35,14 +35,28 @@ import { Callout, Mermaid } from 'nextra/components'
 2. **Best Moment**: 오늘 가장 뿌듯했거나 놀라웠던 순간은?
 3. **Monday Action**: 월요일에 바로 시도해볼 수 있는 것 하나는?
 
-### 실무에서 이어가기
+### 반복에서 축적으로
 
-<Mermaid chart={`timeline
-    title 워크숍 이후 로드맵
-    이번 주 : 오늘 만든 앱을 실제 데이터로 테스트
-    다음 주 : Claude Code로 기능 1개 추가
-    한 달 후 : 동료에게 공유하고 피드백 받기
+오늘 한 번 만들고 끝이 아닙니다. **반복할수록 쌓이는 구조**를 만들어가세요.
+
+<Mermaid chart={`flowchart LR
+    A["1회차\\n오늘 만든 앱"] --> B["2회차\\n실제 데이터로\\n테스트"]
+    B --> C["3회차\\n기능 1개 추가\\n+ CLAUDE.md 갱신"]
+    C --> D["4회차\\n동료에게 공유\\n피드백 반영"]
+    D --> E["축적\\n커스텀 커맨드\\n팀 자산"]
+
+    style A fill:#fef3c7,stroke:#f59e0b
+    style B fill:#fef3c7,stroke:#f59e0b
+    style C fill:#dbeafe,stroke:#3b82f6
+    style D fill:#dbeafe,stroke:#3b82f6
+    style E fill:#d1fae5,stroke:#10b981
 `} />
+
+| 시점 | 할 일 | 쌓이는 것 |
+|------|------|----------|
+| 이번 주 | 오늘 만든 앱을 실제 데이터로 테스트 | 실사용 피드백 |
+| 다음 주 | Claude Code로 기능 1개 추가 | CLAUDE.md 갱신, 커맨드 추가 |
+| 한 달 후 | 동료에게 공유하고 피드백 반영 | 팀 자산 (커맨드, 워크플로우) |
 
 ### 도구 가이드
 
@@ -55,6 +69,13 @@ import { Callout, Mermaid } from 'nextra/components'
 | 정밀한 개선 | **Claude Code** (VS Code) | 코드 수준으로 기능을 추가·수정한다 |
 | 배포 | **Lovable Publish** | 다른 사람이 접속할 수 있는 URL을 만든다 |
 | 자산화 | **CLAUDE.md** + 커스텀 커맨드 | 반복 작업을 자동화하고 팀과 공유한다 |
+
+### 더 알아보기
+
+> [AX, 반복에서 축적으로 — 참고 자료](/reference/ax-references)
+>
+> 삼성SDS 특강에서 발표한 우아한형제들의 AI 활용 사례와
+> 다른 기업의 참고 자료를 정리했습니다.
 
 ### Q&A
 
