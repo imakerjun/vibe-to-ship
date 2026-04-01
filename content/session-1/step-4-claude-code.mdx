@@ -24,7 +24,26 @@ Lovable은 빠른 프로토타이핑에 최적화되어 있지만, React + Tailw
 
 ### Lovable에서 GitHub 연결하기 (5분)
 
-1. Lovable 상단 메뉴에서 **GitHub** 아이콘을 클릭합니다
+Lovable과 GitHub를 연결하면 코드가 양방향으로 동기화됩니다.
+
+<Mermaid chart={`sequenceDiagram
+    participant L as Lovable
+    participant G as GitHub
+    participant PC as 내 컴퓨터
+
+    L->>G: Connect GitHub (저장소 생성)
+    Note over L,G: 양방향 동기화 시작
+    L-->>G: Lovable에서 수정 → 자동 push
+    G-->>L: GitHub에 push → Lovable 반영
+    G->>PC: git clone (코드 가져오기)
+    PC->>G: git push (코드 반영)
+    G-->>L: Lovable에도 반영
+`} />
+
+1. Lovable 상단 메뉴에서 **GitHub 아이콘**을 클릭합니다
+
+<img src="/images/lovable-github-connect.png" alt="Lovable GitHub 연결 버튼" style={{maxWidth: '480px', borderRadius: '12px', border: '1px solid #333'}} />
+
 2. **Connect to GitHub**를 선택합니다
 3. 저장소 이름을 입력하고 **Create Repository**를 클릭합니다
 
