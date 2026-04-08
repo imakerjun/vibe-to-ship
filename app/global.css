@@ -149,6 +149,14 @@ article h3 + p,
   margin-top: 1rem;
 }
 
+/* 코드 블록 내 한글 줄바꿈 — 긴 줄이 가로로 넘치지 않도록 wrap 허용 */
+article pre code,
+.nextra-content pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
 /* 3. 링크 밑줄 간격 — 한글 글자와 떨어뜨리기 */
 article a,
 .nextra-content a {

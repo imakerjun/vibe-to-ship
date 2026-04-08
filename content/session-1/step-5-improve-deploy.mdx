@@ -1,0 +1,212 @@
+---
+title: '스텝 5: Claude Code로 개선 + 배포'
+description: 최신 코드를 동기화하고, Claude Code로 개선하고, GitHub에 올린 뒤 배포한다
+---
+
+import { Steps, Callout, Mermaid } from 'nextra/components'
+
+# 스텝 5: Claude Code로 개선 + 배포
+
+<span className="step-tools">Claude Code · GitHub · Lovable</span>
+
+**이 스텝에서 하는 일**: 로컬 코드를 최신 상태로 동기화하고, Claude Code로 기능을 개선한 뒤, GitHub에 올리고 배포해서 조원이 직접 써보게 합니다.
+
+<Steps>
+
+### 작업 시작 전: 최신 코드 가져오기
+
+Claude Code로 작업을 시작하기 **전에**, 먼저 GitHub에 있는 **최신 코드를 내 컴퓨터로 받아와야** 합니다.
+
+<Callout type="warning">
+**왜 필요한가요?**
+
+스텝 4에서 코드를 가져온 이후에도, Lovable 쪽에서 추가로 수정했거나 Publish를 눌렀다면 **GitHub의 코드가 내 컴퓨터의 코드보다 더 최신**일 수 있습니다.
+이 상태에서 바로 Claude Code로 수정하면, 나중에 GitHub에 올릴 때 충돌이 나거나 Lovable에서 만든 변경이 사라질 수 있습니다.
+
+**규칙은 간단합니다**: Claude Code를 켤 때마다 **가장 먼저** 최신 코드부터 받아온다.
+</Callout>
+
+<Mermaid chart={`flowchart LR
+    L["Lovable<br/>(추가 수정/Publish)"] -->|자동| G["GitHub<br/>(최신 상태)"]
+    G -->|① pull| PC["내 컴퓨터<br/>(최신으로 동기화)"]
+    PC -->|② 작업 시작| CC["Claude Code<br/>(개선)"]
+
+    style L fill:#fef3c7,stroke:#f59e0b
+    style G fill:#e0e7ff,stroke:#6366f1
+    style PC fill:#dbeafe,stroke:#3b82f6
+    style CC fill:#dcfce7,stroke:#16a34a
+`} />
+
+Claude Code 채팅창에 다음과 같이 한 줄만 입력하면 됩니다.
+
+```
+GitHub에서 최신 코드를 받아와줘.
+```
+
+Claude Code가 `git pull`을 실행해 GitHub에 있는 최신 변경사항을 내 컴퓨터로 가져옵니다.
+
+<Callout type="default">
+**조금 더 안전하게 쓰고 싶다면**
+
+```
+지금 내 컴퓨터 코드가 GitHub 최신 상태와 같은지 확인하고, 다르면 최신으로 받아와줘.
+```
+
+이렇게 요청하면 Claude Code가 먼저 상태를 확인(`git status`, `git fetch`)하고, 차이가 있을 때만 받아옵니다.
+</Callout>
+
+<Callout type="info">
+**체크포인트**
+
+- "Already up to date." → 이미 최신, 바로 작업 시작 가능
+- "Updating ..." 또는 변경된 파일 목록이 출력됨 → 최신으로 동기화 완료
+- 충돌(conflict) 메시지가 보이면 → Claude Code에게 "충돌을 해결해줘"라고 그대로 요청하세요
+</Callout>
+
+### Claude Code로 개선하기
+
+이제 본격적으로 코드를 개선합니다. Claude Code 채팅창에 자연어로 요청하세요.
+
+먼저 프로젝트 구조를 파악합니다.
+
+```
+이 프로젝트의 구조를 설명해줘.
+주요 파일과 역할을 간단히 알려줘.
+```
+
+그리고 기능을 1건 추가합니다.
+
+```
+점검 완료율을 날짜별로 보여주는 간단한 차트를 추가해줘.
+최근 7일간의 완료율을 막대 그래프로 보여주면 좋겠어.
+대시보드 상단에 배치해줘.
+```
+
+<Callout type="default">
+**팁: 요청이 너무 크면 쪼개세요**
+
+Claude Code에 한 번에 너무 많은 것을 요청하면 결과가 엉킬 수 있습니다.
+요청을 작게 나누면 더 정확하게 작동합니다.
+
+**크고 모호한 요청 (비추천)**
+```
+앱 전체를 더 보기 좋게 만들고, 기능도 추가하고, 속도도 빠르게 해줘.
+```
+
+**작고 구체적인 요청 (추천)**
+```
+1. 먼저 헤더 색상을 진한 파란색(#1e40af)으로 바꿔줘.
+```
+```
+2. 완료율 숫자 옆에 퍼센트(%) 기호를 추가해줘.
+```
+```
+3. 이제 오늘 날짜를 헤더 오른쪽에 표시해줘.
+```
+
+한 번에 한 가지씩 수정하고, 결과를 확인한 뒤 다음으로 넘어가세요.
+</Callout>
+
+<Callout type="info">
+**관찰 포인트**: Lovable이 만든 코드가 실제 파일로 존재합니다.
+Claude Code는 이 파일들을 직접 읽고 수정합니다.
+왼쪽 파일 목록에서 수정된 파일이 표시되는 것을 확인해보세요.
+Lovable은 "빠르게 만들기", Claude Code는 "정밀하게 다듬기"입니다.
+</Callout>
+
+### 변경사항을 GitHub에 올리기
+
+배포하기 전에 Claude Code가 수정한 코드를 먼저 GitHub에 반영해야 합니다. Lovable은 GitHub 저장소의 최신 상태를 기준으로 배포하기 때문에, GitHub에 올리지 않은 변경사항은 배포에 포함되지 않습니다.
+
+<Mermaid chart={`flowchart LR
+    A["내 컴퓨터<br/>(수정한 코드)"] -->|① 커밋| B["Git<br/>(변경 이력 기록)"]
+    B -->|② 푸시| C["GitHub<br/>(클라우드 저장소)"]
+    C -->|③ 자동 반영| D["Lovable<br/>(배포 준비 완료)"]
+
+    style A fill:#dbeafe,stroke:#3b82f6
+    style B fill:#fef3c7,stroke:#f59e0b
+    style C fill:#e0e7ff,stroke:#6366f1
+    style D fill:#dcfce7,stroke:#16a34a
+`} />
+
+<Callout type="default">
+**커밋과 푸시가 뭔가요?**
+
+- **커밋(commit)** — 지금까지의 변경사항에 "이런 의도로 이만큼 바꿨다"는 메시지를 붙여 스냅샷으로 남기는 일입니다. 나중에 이 시점으로 되돌아갈 수 있습니다.
+- **푸시(push)** — 내 컴퓨터의 커밋을 GitHub(클라우드)에 업로드하는 일입니다. 푸시해야 Lovable과 다른 사람이 변경을 볼 수 있습니다.
+</Callout>
+
+Claude Code에게 자연어로 요청하면 커밋과 푸시를 한 번에 처리할 수 있습니다.
+
+```
+지금까지 수정한 내용을 의미 있는 커밋 메시지로 커밋하고 GitHub에 푸시해줘.
+```
+
+Claude Code가 `git status`로 변경된 파일을 확인하고, 변경 내용에 맞는 커밋 메시지를 만들어 커밋한 뒤 원격 저장소(origin)로 푸시합니다.
+
+<Callout type="info">
+**체크포인트: GitHub에서 반영 확인**
+
+브라우저에서 내 GitHub 저장소 페이지를 새로고침하면 방금 만든 커밋이 목록 맨 위에 보입니다. 커밋 메시지를 클릭하면 어떤 파일이 어떻게 바뀌었는지 확인할 수 있습니다.
+
+Lovable의 GitHub 연결이 양방향이기 때문에, GitHub에 푸시한 변경은 잠시 후 Lovable 프리뷰에도 자동으로 반영됩니다.
+</Callout>
+
+<Callout type="warning">
+**순서가 중요합니다.** 반드시 **GitHub에 푸시 → 그다음 Lovable에서 배포** 순서로 진행하세요. 푸시하지 않고 Publish를 누르면 Claude Code로 수정한 내용이 빠진 채 이전 상태로 배포됩니다.
+</Callout>
+
+### 배포하기
+
+두 가지 방법 중 하나를 선택합니다.
+
+**방법 A: Lovable에서 배포 (간단)**
+
+Lovable 우상단 **Publish** 버튼을 클릭하면 배포 URL을 설정하는 화면이 나옵니다.
+
+<img src="/images/lovable-publish.png" alt="Lovable Publish — 웹사이트 주소 설정 화면" style={{maxWidth: '480px', borderRadius: '12px', border: '1px solid #e5e7eb'}} />
+
+URL을 확인하고 **Continue**를 클릭하면 배포가 완료됩니다.
+
+**방법 B: Claude Code에서 배포 (코드 변경 포함)**
+
+Claude Code에게 요청하면 수정한 코드를 GitHub에 반영하고 배포까지 진행할 수 있습니다.
+
+```
+수정한 코드를 GitHub에 올리고 배포해줘.
+```
+
+### 교차 체험하기
+
+생성된 URL을 조원에게 공유합니다.
+
+- 조원의 URL에 접속해서 직접 써보세요
+- 체크리스트 항목을 체크해보세요
+- 모바일에서도 열어보세요
+
+</Steps>
+
+---
+
+## 확인 포인트
+
+> 배포된 URL에서 앱이 동작하고, 조원이 실제로 사용할 수 있으면 성공입니다.
+
+<Callout type="info" emoji="🎉">
+**축하합니다!**
+
+대화에서 시작한 아이디어가 → DB와 로그인이 붙은 앱이 되었고 → 코드로 개선했고 → 누구나 접속할 수 있는 URL이 되었습니다.
+
+이것이 **Lovable → DB → 로그인 → Claude Code → 배포** 풀사이클입니다.
+세션 2에서는 이 사이클을 **내 업무 과제**에 적용합니다.
+</Callout>
+
+## 왜 이걸 하는가
+
+> Lovable은 **빠르게 만들기**, Claude Code는 **정밀하게 다듬기**입니다.
+> 코드를 가져오는 순간, 앱은 완전히 **내 것**이 됩니다.
+> 배포하면 "내 컴퓨터에서만 도는 것"이 "누구나 쓸 수 있는 것"으로 바뀝니다.
+
+---
+
+세션 1이 끝났습니다. 점심 후 [세션 2: 내 업무 앱 만들기](/session-2)로 이어갑니다.

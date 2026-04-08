@@ -15,12 +15,14 @@ import { Steps, Callout, Mermaid } from 'nextra/components'
 <Mermaid chart={`flowchart LR
     A["스텝 1\\nLovable\\n프로토타입"] --> B["스텝 2\\nDB 연동\\n데이터 저장"]
     B --> C["스텝 3\\n구글 로그인\\n사용자 인증"]
-    C --> D["스텝 4\\nClaude Code\\n개선 + 배포"]
+    C --> D["스텝 4\\nGitHub 연결\\n+ 환경 준비"]
+    D --> E["스텝 5\\nClaude Code\\n개선 + 배포"]
 
     style A fill:#fef3c7,stroke:#f59e0b
     style B fill:#fef3c7,stroke:#f59e0b
     style C fill:#fef3c7,stroke:#f59e0b
     style D fill:#dbeafe,stroke:#3b82f6
+    style E fill:#dbeafe,stroke:#3b82f6
 `} />
 
 <Callout type="info">
@@ -38,7 +40,8 @@ import { Steps, Callout, Mermaid } from 'nextra/components'
 | 10:00 | [스텝 2: DB 연동](/session-1/step-2-db) | 20분 |
 | 10:20 | [스텝 3: 구글 로그인](/session-1/step-3-google-login) | 20분 |
 | 10:40 | 쉬는 시간 | 10분 |
-| 10:50 | [스텝 4: GitHub → Claude Code → 배포](/session-1/step-4-claude-code) | 50분 |
+| 10:50 | [스텝 4: GitHub 연결 + 로컬 환경 준비](/session-1/step-4-claude-code) | 25분 |
+| 11:15 | [스텝 5: Claude Code로 개선 + 배포](/session-1/step-5-improve-deploy) | 25분 |
 | 11:40 | 오전 정리 | 10분 |
 
 <Callout type="info">
