@@ -1,0 +1,150 @@
+---
+title: '스텝 3: 하네스 구성요소 지도'
+description: Claude Code를 둘러싼 6가지 하네스 구성 요소를 한 장에 정리
+---
+
+import { Callout, Mermaid } from 'nextra/components'
+
+# 스텝 3: 하네스 구성요소 지도
+
+<span className="step-tools">읽기 약 5분</span>
+
+<Callout type="info">
+**이 스텝은 "지도"입니다.** 모든 것을 한 번에 외우려 하지 마세요.
+**꼭 기억해야 할 것은 2개**: `CLAUDE.md` 와 `슬래시 커맨드`. 나머지 4개는 **존재만 알아두면** 됩니다.
+</Callout>
+
+## 하네스 구성 요소 마인드맵
+
+<Mermaid chart={`mindmap
+  root((Claude Code))
+    CLAUDE.md
+      프로젝트 맥락 저장
+      팀 공통 규칙
+      4계층 hierarchy
+    슬래시 커맨드
+      기본 제공
+      커스텀 커맨드
+      반복 프롬프트 저장
+    훅 Hooks
+      PreToolUse
+      PostToolUse
+      자동 실행
+    스킬 Skills
+      도메인 매뉴얼
+      조건 만족시 자동 참조
+      다단계 워크플로우
+    MCP
+      외부 서비스 연결
+      Notion, Slack, GitHub
+      표준 프로토콜
+    서브에이전트
+      역할 분리
+      조사, 계획, 구현, 리뷰
+      컨텍스트 격리
+`} />
+
+---
+
+## 1. CLAUDE.md — AI에게 주는 회사 소개서
+
+**한 줄 정의**: 프로젝트의 목적·기술 스택·규칙·금기사항을 담은 마크다운 파일.
+
+**언제 필요한가**: 같은 설명을 **두 번째** 하게 될 때. Claude가 "이 프로젝트가 뭔가요?"를 매번 물어본다면 바로 신호입니다.
+
+**공식 문서**: [Manage Claude's memory](https://docs.claude.com/en/docs/claude-code/memory)
+**더 읽기**: [참고 자료 → 하네스 엔지니어링](/reference/harness-engineering)
+
+---
+
+## 2. 슬래시 커맨드 — 반복 프롬프트를 버튼으로
+
+**한 줄 정의**: 자주 쓰는 프롬프트를 `/이름`으로 저장해둔 단축키.
+
+**기본 제공**: `/init` · `/compact` · `/review` · `/memory` · `/help`
+**커스텀**: `.claude/commands/{이름}.md` 파일로 만들고 저장소에 커밋하면 팀과 공유 가능.
+
+**언제 필요한가**: "이 프롬프트 또 써야 하는데..." 싶은 순간.
+
+**공식 문서**: [Slash commands](https://docs.claude.com/en/docs/claude-code/slash-commands)
+
+---
+
+## 3. 훅 (Hooks) — 자동으로 눌리는 버튼
+
+**한 줄 정의**: 파일 저장·편집 같은 특정 이벤트가 일어나면 **자동으로 실행되는 스크립트**.
+
+**대표 이벤트**: `PreToolUse` (도구 사용 직전), `PostToolUse` (도구 사용 직후), `Stop` (대화 종료)
+
+**언제 필요한가**: 매번 같은 확인·정리 작업을 **손으로** 하고 있을 때.
+
+**공식 문서**: [Hooks guide](https://docs.claude.com/en/docs/claude-code/hooks)
+
+---
+
+## 4. 스킬 (Agent Skills) — 전문 매뉴얼
+
+**한 줄 정의**: 특정 상황에서 Claude를 안내하는 **도메인별 자동 참조 문서**.
+
+**슬래시 커맨드와의 차이**:
+- **커스텀 커맨드**: 사용자가 `/이름` 직접 호출 → 단일 프롬프트 실행
+- **스킬**: Claude가 **상황에 맞으면 자동** 참조 → 다단계 워크플로우
+
+**언제 필요한가**: "이 영역에서는 이런 순서로, 이 파일들을 이 방식으로 다룬다"가 굳어졌을 때.
+
+**공식 문서**: [Skills](https://docs.claude.com/en/docs/claude-code/skills)
+
+---
+
+## 5. MCP — 외부 세계와의 연결선
+
+**한 줄 정의**: Claude Code가 **외부 서비스** (Notion, Slack, GitHub, 구글 드라이브 등)와 직접 대화할 수 있게 해주는 표준 프로토콜.
+
+**비개발자에게 유용한 예시**
+- **Notion MCP**: Claude가 내 Notion 페이지를 직접 읽고 쓰기
+- **Slack MCP**: 팀 채널에 자동 알림 보내기
+- **Google Drive MCP**: 드라이브 파일을 Claude에게 참고자료로 전달
+
+**언제 필요한가**: "Claude가 알면 좋겠는데, 내 컴퓨터에 없는 정보"가 생겼을 때.
+
+**공식 문서**: [Model Context Protocol](https://docs.claude.com/en/docs/claude-code/mcp)
+
+---
+
+## 6. 서브에이전트 (Subagents) — 역할 분리
+
+**한 줄 정의**: 조사·계획·구현·리뷰 같은 **역할별로 분리된** AI 비서를 여러 명 두는 것.
+
+**왜 쪼개나**: 사람 조직도 기획·디자인·개발·QA를 나눕니다. AI도 한 에이전트가 너무 많은 일을 하면 맥락이 오염돼 결과가 나빠집니다.
+
+**실제 사례**: 당근은 고객 문의 처리에 **Router / Response / Critic** 3-에이전트를 분리해서 **일당 문의 56% 감소** 를 기록했습니다.
+
+**언제 필요한가**: 복잡한 작업에서 "AI가 스스로 검증까지 해버려서 신뢰가 안 갈 때".
+
+**공식 문서**: [Subagents](https://docs.claude.com/en/docs/claude-code/sub-agents)
+
+---
+
+## 핵심 2개만 기억하기
+
+<Callout type="default">
+**Day 1에 필요한 건 이 두 가지뿐입니다.**
+
+1. **CLAUDE.md** — 한 번 적어두면 매번 설명하지 않아도 됨
+2. **슬래시 커맨드** — 두 번 이상 쓴 프롬프트는 `/이름`으로 저장
+
+나머지 4개(훅·스킬·MCP·서브에이전트)는 **이 두 가지가 몸에 익은 후에** 하나씩 건드려도 충분합니다.
+</Callout>
+
+## 더 깊이 알고 싶다면
+
+이 페이지는 **지도**이고, 상세 사전은 별도 페이지에 있습니다.
+
+> [참고 자료 → 하네스 엔지니어링](/reference/harness-engineering)
+>
+> 각 구성 요소의 상세 설명, 공식 문서 링크, 1차 출처(Anthropic, Martin Fowler, HumanLayer 등),
+> 우아한형제들 실무 사례, 그리고 메이커준의 [Effective AI Coding 강의](https://github.com/imakerjun/effective-ai-coding-sds) 저장소까지 연결되어 있습니다.
+
+---
+
+참고 → [참고 자료: 하네스 엔지니어링](/reference/harness-engineering)

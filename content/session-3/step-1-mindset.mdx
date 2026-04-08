@@ -1,0 +1,86 @@
+---
+title: '스텝 1: 프롬프트에서 하네스로'
+description: '말 걸기에서 환경 설계로 — 하네스 엔지니어링 관점 이해하기'
+---
+
+import { Callout, Mermaid } from 'nextra/components'
+
+# 스텝 1: 프롬프트에서 하네스로
+
+<span className="step-tools">읽기 약 4분</span>
+
+## AI를 잘 쓴다는 것의 두 가지 레벨
+
+**레벨 1 — 프롬프트 엔지니어링**: "말을 잘 거는 것"
+**레벨 2 — 하네스 엔지니어링**: "AI가 일할 작업실을 직접 설계하는 것"
+
+오늘 오전까지 여러분은 주로 **레벨 1**을 경험했습니다. 프롬프트를 잘 써서 Lovable이 원하는 화면을 만들게 하고, Claude Code에게 명확하게 요청해서 코드를 수정했죠. 이것도 중요한 기술입니다.
+
+하지만 **같은 질문을 두 번째, 세 번째 할 때마다 매번 같은 설명을 반복해야 한다면**, 그건 도구를 잘 쓰는 게 아니라 도구에 끌려다니는 것입니다.
+
+<Mermaid chart={`flowchart LR
+    subgraph L1["레벨 1: 프롬프트 엔지니어링"]
+      P1["사용자"] -.->|매번 긴 지시| C1["Claude Code"]
+    end
+    subgraph L2["레벨 2: 하네스 엔지니어링"]
+      P2["사용자"] -->|짧은 지시| H["하네스<br/>(환경)"]
+      H -->|맥락 + 규칙 + 도구| C2["Claude Code"]
+      MD["CLAUDE.md"] --> H
+      CMD["커맨드"] --> H
+      HK["훅"] --> H
+      SK["스킬"] --> H
+      MCP["MCP"] --> H
+    end
+
+    style L1 fill:#fef3c7,stroke:#f59e0b
+    style L2 fill:#dbeafe,stroke:#3b82f6
+    style H fill:#fff,stroke:#3b82f6,stroke-width:3px
+`} />
+
+## 왜 "환경"이 중요한가
+
+사람도 마찬가지입니다. 같은 사람이어도 **어떤 환경에서 일하느냐**에 따라 결과가 완전히 달라집니다.
+
+| 사람에게 | AI에게 |
+|---|---|
+| 업무 가이드가 있는 회사 | **CLAUDE.md** 에 프로젝트 규칙이 정리된 저장소 |
+| 자주 쓰는 서류 양식 | **커스텀 커맨드** (반복 프롬프트를 저장) |
+| 자동으로 돌아가는 체크리스트 | **훅(Hook)** — 특정 상황에 자동 실행 |
+| 부서별 전문 매뉴얼 | **스킬(Skill)** — 도메인별 자동 지침 |
+| 사내 시스템 접근 권한 | **MCP** — Notion·Slack 등 외부 서비스 연결 |
+
+> **핵심 공식**: `Agent = Model + Harness`
+>
+> — Birgitta Böckeler, Martin Fowler's bliki
+
+같은 Claude 모델이어도, **무엇으로 감싸느냐**에 따라 결과가 크게 달라집니다.
+
+## 여러분은 이미 하네스를 만들고 있었습니다
+
+세션 2에서 다음을 했다면, 여러분은 이미 하네스의 **첫 조각**을 만든 것입니다.
+
+<Callout type="default">
+- ✅ 스텝 4에서 `/init`으로 **CLAUDE.md** 를 생성 → **Context Engineering** 의 시작
+- ✅ 스코핑 템플릿에 "누가 쓰나, 입력, 출력, 저장"을 작성 → **Plan-based Execution** 의 시작
+- ✅ Lovable + Claude Code 역할 분담 ("빠르게 만들기" + "정밀하게 다듬기") → **Multi-Agent** 사고의 시작
+</Callout>
+
+즉, "비개발자는 하네스 엔지니어링을 할 수 없다"는 것은 사실이 아닙니다. **여러분은 오늘 이미 시작했습니다.** 앞으로 할 일은 그 위에 조금씩 **추가**해 가는 것뿐입니다.
+
+## 한 문장으로 기억하기
+
+> **AI는 환경만큼만 똑똑해진다.**
+>
+> 좋은 프롬프트 한 줄보다, 좋은 환경을 한 번 만들어두는 것이 열 배 오래 갑니다.
+
+## 용어 박스
+
+<Callout type="info">
+**하네스(Harness)** — 원래는 말의 마구(馬具)를 뜻합니다. 말의 힘을 유용한 일로 향하게 하는 장치죠. AI 맥락에서는 LLM의 능력을 신뢰할 수 있는 작업으로 향하게 하는 **모든 환경·규칙·도구**를 가리킵니다.
+
+**1차 출처**: [Birgitta Böckeler — Harness engineering for coding agent users](https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html) (Martin Fowler, 2025)
+</Callout>
+
+---
+
+다음 → [스텝 2: 시간 기반 학습 로드맵](/session-3/step-2-roadmap)
