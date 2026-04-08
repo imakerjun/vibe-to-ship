@@ -132,6 +132,7 @@ article h4,
 article h1,
 .nextra-content h1 {
   font-weight: 700;
+  margin-top: 1.5rem;
 }
 article h2,
 .nextra-content h2 {
