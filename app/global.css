@@ -179,12 +179,23 @@ article ol li,
   margin-bottom: 0.4rem;
 }
 
-/* 코드 블록 내 한글 줄바꿈 */
+/* 코드 블록 내 한글 줄바꿈 + 줄 간격 + 빈 줄 보존 */
 article pre code,
 .nextra-content pre code {
   white-space: pre-wrap;
   word-break: break-word;
   overflow-wrap: anywhere;
+  line-height: 1.75;
+}
+
+/* Shiki가 빈 줄을 <span class="line"></span>로 렌더링할 때
+ * 높이가 0이 되어 단락 구분이 사라지는 문제 방지 */
+article pre code .line:empty,
+article pre code span.line:empty,
+.nextra-content pre code .line:empty,
+.nextra-content pre code span.line:empty {
+  display: inline-block;
+  min-height: 1em;
 }
 
 /* ============================================================
