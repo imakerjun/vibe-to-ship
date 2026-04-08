@@ -22,7 +22,7 @@ function NotionCallout({
   emoji,
   ...rest
 }: ComponentProps<typeof Callout>) {
-  const finalEmoji = emoji ?? defaultEmojiByType[type] ?? '💡'
+  const finalEmoji = emoji ?? (type ? defaultEmojiByType[type] : null) ?? '💡'
   return <Callout type={type} emoji={finalEmoji} {...rest} />
 }
 
