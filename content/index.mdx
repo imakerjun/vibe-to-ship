@@ -36,7 +36,8 @@ import { Steps, Callout, Cards, Mermaid } from 'nextra/components'
     style F fill:#d1fae5,stroke:#10b981
 `} />
 
-<Steps>
+<Columns cols={2}>
+<div>
 
 ### 세션 1: 가이드를 따라 풀사이클 1회전
 
@@ -45,6 +46,9 @@ import { Steps, Callout, Cards, Mermaid } from 'nextra/components'
 
 [세션 1 시작하기 →](/session-1)
 
+</div>
+<div>
+
 ### 세션 2: 내 업무 앱 만들기
 
 세션 1에서 익힌 사이클을 자기 업무 과제에 적용합니다.
@@ -52,7 +56,8 @@ import { Steps, Callout, Cards, Mermaid } from 'nextra/components'
 
 [세션 2 시작하기 →](/session-2)
 
-</Steps>
+</div>
+</Columns>
 
 ---
 
