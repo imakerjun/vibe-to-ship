@@ -269,14 +269,21 @@ article pre code,
   line-height: 1.75;
 }
 
-/* Shiki가 빈 줄을 <span class="line"></span>로 렌더링할 때
- * 높이가 0이 되어 단락 구분이 사라지는 문제 방지 */
-article pre code .line:empty,
-article pre code span.line:empty,
-.nextra-content pre code .line:empty,
-.nextra-content pre code span.line:empty {
-  display: inline-block;
-  min-height: 1em;
+/* Shiki가 각 코드 줄을 <span class="line">로 감싸는데
+ * 빈 줄이 높이 0으로 접혀 단락 구분이 사라지는 문제 방지.
+ * 모든 line을 block으로 만들어 빈 줄에도 1em 높이 보장. */
+article pre code .line,
+article pre code span.line,
+.nextra-content pre code .line,
+.nextra-content pre code span.line {
+  display: block;
+  min-height: 1.6em;
+}
+article pre code .line:empty::before,
+article pre code span.line:empty::before,
+.nextra-content pre code .line:empty::before,
+.nextra-content pre code span.line:empty::before {
+  content: "\00a0";
 }
 
 /* ============================================================
