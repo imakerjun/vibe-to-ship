@@ -269,20 +269,19 @@ article pre code,
   line-height: 1.75;
 }
 
-/* Shiki가 각 코드 줄을 <span class="line">로 감싸는데
- * 빈 줄이 높이 0으로 접혀 단락 구분이 사라지는 문제 방지.
- * 모든 line을 block으로 만들어 빈 줄에도 1em 높이 보장. */
-article pre code .line,
-article pre code span.line,
-.nextra-content pre code .line,
-.nextra-content pre code span.line {
+/* Nextra의 Shiki는 각 코드 줄을 클래스 없는 <span><span>…</span></span>
+ * 구조로 렌더링합니다. 빈 줄(<span><span></span></span>)이 높이 0으로
+ * 접혀 단락 구분이 사라지는 문제를 방지하기 위해 직접 자식 span을
+ * block 화하고, 내부가 빈 경우 NBSP를 넣어 한 줄 높이를 보장합니다. */
+article pre code > span,
+.nextra-content pre code > span {
   display: block;
   min-height: 1.6em;
 }
-article pre code .line:empty::before,
-article pre code span.line:empty::before,
-.nextra-content pre code .line:empty::before,
-.nextra-content pre code span.line:empty::before {
+article pre code > span:empty::before,
+article pre code > span > span:empty::before,
+.nextra-content pre code > span:empty::before,
+.nextra-content pre code > span > span:empty::before {
   content: "\00a0";
 }
 
