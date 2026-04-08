@@ -59,7 +59,15 @@
 /* Workshop narrative */
 .workshop-narrative {
   font-size: 1.0625rem;
-  line-height: 1.75;
+  line-height: 1.85;
+  margin-top: 2rem;
+}
+
+/* h1 바로 아래의 narrative blockquote는 호흡을 더 확보 */
+.workshop-narrative blockquote {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
 }
 
 /* Prep checklist */
@@ -67,4 +75,83 @@
   padding: 1.5rem;
   border-radius: 0.75rem;
   border: 1px solid var(--nextra-border-color);
+}
+
+/* === 한글 본문 가독성 (전역) ===
+ * 한글은 영문보다 글자 높이가 커서 line-height가 더 필요합니다.
+ * keep-all로 단어 중간 줄바꿈을 방지하여 인지 부하를 낮춥니다. */
+article p,
+article li,
+article blockquote,
+.nextra-content p,
+.nextra-content li,
+.nextra-content blockquote {
+  line-height: 1.8;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 체크리스트 항목 간 호흡 확보 */
+article ul li,
+article ol li,
+.nextra-content ul li,
+.nextra-content ol li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 표 셀의 vertical padding 강화 — 행 구분을 명확하게 */
+article table th,
+article table td,
+.nextra-content table th,
+.nextra-content table td {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+/* 인용구도 한글 가독성 적용 */
+article blockquote,
+.nextra-content blockquote {
+  line-height: 1.8;
+}
+
+/* === 한글 타이포 추가 개선 ===
+ * 1. 본문 한 줄 길이 제한 (시선 이동 줄이기)
+ * 2. 제목과 본문 사이 호흡 (섹션 구분 명확화)
+ * 3. 링크 밑줄 간격 (한글 글자와 밑줄이 붙는 문제 해결) */
+
+/* 1. 본문 단락만 max-width — 표/코드/Mermaid는 그대로 */
+article p,
+article blockquote,
+.nextra-content p,
+.nextra-content blockquote {
+  max-width: 70ch;
+}
+
+/* 2. 제목 위쪽 호흡 강화 (섹션 구분) */
+article h2,
+.nextra-content h2 {
+  margin-top: 3rem;
+  padding-top: 0.5rem;
+}
+
+article h3,
+.nextra-content h3 {
+  margin-top: 2.25rem;
+}
+
+article h2 + p,
+article h3 + p,
+.nextra-content h2 + p,
+.nextra-content h3 + p {
+  margin-top: 1rem;
+}
+
+/* 3. 링크 밑줄 간격 — 한글 글자와 떨어뜨리기 */
+article a,
+.nextra-content a {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
 }
