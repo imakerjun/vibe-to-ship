@@ -10,19 +10,21 @@ import { Steps, Callout, Mermaid } from 'nextra/components'
 세션 1에서 가이드를 따라 돌린 사이클을 이번에는 **내 업무**에 적용합니다.
 거창한 앱이 아니어도 됩니다. 평소 반복하는 업무, 매번 엑셀로 정리하던 것, 팀원에게 공유하기 번거로웠던 것 — **작지만 실제로 쓸 수 있는 것**을 하나 만듭니다.
 
-## 사이클은 동일합니다
+## 전체 흐름
 
 <Mermaid chart={`flowchart LR
-    A["스텝 1\\n업무 파악\\nLovable MVP"] --> B["스텝 2\\nDB + 기능\\n1차 배포"]
-    B --> C["스텝 3\\nClaude Code\\n2차 배포"]
-    C --> D["스텝 4\\n자산화\\nCLAUDE.md"]
-    D --> E["스텝 5\\n데모타임\\n+ 회고"]
+    A["스텝 1\\n아이디어\\n선정+공유"] --> B["스텝 2\\nLovable\\n첫 프롬프트"]
+    B --> C["스텝 3\\nDB+기능\\n1차 배포"]
+    C --> D["스텝 4\\nClaude Code\\n2차 배포"]
+    D --> E["스텝 5\\n자산화\\nCLAUDE.md"]
+    E --> F["스텝 6\\n데모타임\\n+ 회고"]
 
     style A fill:#fef3c7,stroke:#f59e0b
     style B fill:#fef3c7,stroke:#f59e0b
-    style C fill:#dbeafe,stroke:#3b82f6
-    style D fill:#d1fae5,stroke:#10b981
-    style E fill:#ede9fe,stroke:#7c3aed
+    style C fill:#fde68a,stroke:#d97706
+    style D fill:#dbeafe,stroke:#3b82f6
+    style E fill:#d1fae5,stroke:#10b981
+    style F fill:#ede9fe,stroke:#7c3aed
 `} />
 
 <Callout>
@@ -39,18 +41,19 @@ import { Steps, Callout, Mermaid } from 'nextra/components'
 
 | 시각 | 단계 | 분량 |
 |------|------|------|
-| 13:00 | [스텝 1: 업무 파악 + Lovable MVP](/session-2/step-1-problem-lovable) | 50분 |
+| 13:00 | [스텝 1: 아이디어 선정 + 공유](/session-2/step-1-idea) | 20분 |
+| 13:20 | [스텝 2: Lovable 첫 프롬프트](/session-2/step-2-first-prompt) | 30분 |
 | 13:50 | 쉬는 시간 | 10분 |
-| 14:00 | [스텝 2: DB + 기능 확장 + 배포](/session-2/step-2-db-deploy) | 50분 |
+| 14:00 | [스텝 3: DB + 기능 확장 + 배포](/session-2/step-3-db-deploy) | 50분 |
 | 14:50 | 쉬는 시간 | 10분 |
-| 15:00 | [스텝 3: Claude Code로 개선 + 배포](/session-2/step-3-claude-code) | 50분 |
+| 15:00 | [스텝 4: Claude Code로 개선 + 배포](/session-2/step-4-claude-code) | 50분 |
 | 15:50 | 쉬는 시간 | 10분 |
-| 16:00 | [스텝 4: 자산화 — 재사용할 수 있게 만들기](/session-2/step-4-level-up) | 50분 |
+| 16:00 | [스텝 5: 자산화 — 재사용할 수 있게 만들기](/session-2/step-5-level-up) | 50분 |
 | 16:50 | 쉬는 시간 | 10분 |
-| 17:00 | [스텝 5: 데모타임 + 회고](/session-2/step-5-demo) | 60분 |
+| 17:00 | [스텝 6: 데모타임 + 회고](/session-2/step-6-demo) | 60분 |
 
 <Steps>
 ### 스텝 1에서 시작하세요
 
-[스텝 1: 업무 파악 + Lovable MVP →](/session-2/step-1-problem-lovable)
+[스텝 1: 아이디어 선정 + 공유 →](/session-2/step-1-idea)
 </Steps>
