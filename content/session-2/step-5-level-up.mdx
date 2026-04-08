@@ -14,12 +14,39 @@ import { Callout, Mermaid } from 'nextra/components'
 
 Claude Code에는 작업을 효율적으로 만들어주는 기능들이 있습니다.
 
-<Mermaid chart={`mindmap
-  root((Claude Code))
-    CLAUDE.md
-    슬래시 커맨드
-    Skills
-    Hooks
+<Mermaid chart={`%%{init: {'theme':'neutral', 'themeVariables': {
+  'primaryColor':'#f7f6f3',
+  'primaryTextColor':'#37352f',
+  'primaryBorderColor':'#e3e2de',
+  'lineColor':'#9b9a97',
+  'secondaryColor':'#f1f1ef',
+  'tertiaryColor':'#ffffff'
+}}}%%
+erDiagram
+  CLAUDE_CODE ||--|| CLAUDE_MD : "맥락을 읽음"
+  CLAUDE_CODE ||--o{ SLASH_COMMAND : "실행함"
+  CLAUDE_CODE ||--o{ SKILL : "필요할 때 호출"
+  CLAUDE_CODE ||--o{ HOOK : "이벤트로 발동"
+
+  CLAUDE_CODE {
+    string 역할 "AI 코딩 동료"
+  }
+  CLAUDE_MD {
+    string 위치 "프로젝트 루트"
+    string 내용 "프로젝트 맥락 규칙"
+  }
+  SLASH_COMMAND {
+    string 종류 "내장 + 커스텀"
+    string 예시 "/init  /배포"
+  }
+  SKILL {
+    string 단위 "다단계 워크플로우"
+    string 발동 "조건이 맞을 때"
+  }
+  HOOK {
+    string 시점 "이벤트 발생 시"
+    string 예시 "파일 저장 시 자동 실행"
+  }
 `} />
 
 | 기능 | 한 줄 설명 | 공식 문서 |
