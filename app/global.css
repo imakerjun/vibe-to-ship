@@ -160,9 +160,90 @@ article blockquote,
 .nextra-content p,
 .nextra-content li,
 .nextra-content blockquote {
-  line-height: 1.75;
+  line-height: 1.65;
   word-break: keep-all;
   overflow-wrap: break-word;
+}
+
+/* Inline code — Notion signature red on soft gray */
+article :not(pre) > code,
+.nextra-content :not(pre) > code {
+  color: #eb5757;
+  background: rgba(135, 131, 120, 0.15);
+  padding: 0.15em 0.35em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+.dark article :not(pre) > code,
+.dark .nextra-content :not(pre) > code {
+  color: #ff6b6b;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Image caption — italic text right after image becomes caption */
+article p > img + em,
+article img + em,
+.nextra-content img + em {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-style: normal;
+  text-align: center;
+}
+
+/* Notion Toggle block */
+details.notion-toggle {
+  margin: 1rem 0;
+  padding: 0;
+  border: none;
+}
+details.notion-toggle > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  font-weight: 500;
+  color: var(--text-body);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+details.notion-toggle > summary::-webkit-details-marker {
+  display: none;
+}
+details.notion-toggle > summary::before {
+  content: "▶";
+  font-size: 0.7em;
+  color: var(--text-muted);
+  transition: transform 0.15s ease;
+  display: inline-block;
+  width: 0.9em;
+}
+details.notion-toggle[open] > summary::before {
+  transform: rotate(90deg);
+}
+details.notion-toggle > .notion-toggle-body {
+  margin-top: 0.5rem;
+  padding-left: 1.4rem;
+  border-left: 1px solid var(--border-subtle);
+  margin-left: 0.35em;
+}
+
+/* Notion Columns */
+.notion-columns {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.25rem 0;
+}
+.notion-columns.cols-2 { grid-template-columns: 1fr 1fr; }
+.notion-columns.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.notion-columns > * { min-width: 0; }
+.notion-columns > * > :first-child { margin-top: 0; }
+@media (max-width: 768px) {
+  .notion-columns.cols-2,
+  .notion-columns.cols-3 { grid-template-columns: 1fr; }
 }
 article p,
 article blockquote,
@@ -269,7 +350,7 @@ div[class*="nextra-callout"],
 article .nextra-callout {
   border: none !important;
   border-left: none !important;
-  border-radius: 6px !important;
+  border-radius: 3px !important;
   padding: 14px 16px 14px 14px !important;
   margin: 1rem 0 !important;
   background: var(--callout-gray-bg) !important;
