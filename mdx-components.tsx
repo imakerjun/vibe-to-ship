@@ -1,6 +1,8 @@
 import { useMDXComponents as getDocsMDXComponents } from 'nextra-theme-docs'
 import { Callout, Mermaid } from 'nextra/components'
 import type { ComponentProps } from 'react'
+import { Toggle } from './components/notion/Toggle'
+import { Columns } from './components/notion/Columns'
 
 const docsComponents = getDocsMDXComponents()
 
@@ -29,6 +31,8 @@ export function useMDXComponents(components?: Record<string, unknown>) {
     ...docsComponents,
     Mermaid,
     Callout: NotionCallout,
+    Toggle,
+    Columns,
     ...components
   }
 }
