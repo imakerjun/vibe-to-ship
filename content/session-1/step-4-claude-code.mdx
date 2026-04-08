@@ -32,7 +32,7 @@ import { Steps, Callout, Mermaid } from 'nextra/components'
     style PC fill:#dbeafe,stroke:#3b82f6
 `} />
 
-<Callout type="warning">
+<Callout type="warning" emoji="🤔">
 **왜 코드를 가져오나요?**
 
 Lovable은 빠른 프로토타이핑에 최적화되어 있지만, Lovable 안에서만 수정할 수 있습니다.
@@ -70,7 +70,7 @@ Lovable과 GitHub를 연결하면 코드가 양방향으로 동기화됩니다.
 2. **Connect to GitHub**를 선택합니다
 3. 저장소 이름을 입력하고 **Create Repository**를 클릭합니다
 
-<Callout type="info">
+<Callout type="info" emoji="🔄">
 Lovable의 GitHub 연결은 **양방향 동기화**됩니다.
 Lovable에서 수정하면 GitHub에 반영되고, GitHub에서 수정하면 Lovable에도 반영됩니다.
 </Callout>
@@ -89,7 +89,7 @@ GitHub에 연결되면 아래와 같이 저장소 주소를 확인할 수 있는
 코드를 내 컴퓨터에서 다루려면 **에디터**가 필요합니다.
 VS Code는 무료 코드 편집기이고, 여기에 Claude Code 확장을 설치하면 대화로 코드를 수정할 수 있습니다.
 
-<Callout type="info">
+<Callout type="info" emoji="⏭️">
 **이미 VS Code와 Claude Code가 설치되어 있다면?**
 
 1단계와 2단계를 건너뛰고 바로 **3단계: Claude Code 첫 실행과 로그인**으로 이동하세요.
@@ -112,7 +112,7 @@ VS Code는 무료 코드 편집기이고, 여기에 Claude Code 확장을 설치
 
 <img src="/images/vscode-claude-code-extension.png" alt="VS Code 확장 마켓플레이스에서 Claude Code for VS Code 검색 — 게시자 Anthropic" style={{maxWidth: '800px', width: '100%', borderRadius: '12px', border: '1px solid #333', marginTop: '1rem'}} />
 
-<Callout type="warning">
+<Callout type="warning" emoji="🛑">
 **반드시 게시자가 `Anthropic`인 것을 설치하세요.** "Claude Code" 이름을 쓰는 비공식 확장이 여러 개 있습니다.
 첫 번째 결과의 이름이 <strong>"Claude Code for VS Code"</strong>이고 게시자가 <strong>Anthropic</strong>인지 확인하세요.
 </Callout>
@@ -125,7 +125,7 @@ VS Code는 무료 코드 편집기이고, 여기에 Claude Code 확장을 설치
 2. 처음 열면 로그인 안내가 나타납니다. **Sign in**을 클릭하면 브라우저가 열리고 Anthropic 계정으로 로그인합니다
 3. 로그인이 끝나면 VS Code로 돌아와 Claude Code 채팅창이 활성화됩니다
 
-<Callout type="info">
+<Callout type="info" emoji="🔑">
 **워크숍 계정으로 로그인하세요.** 개인 Anthropic 계정이 없다면 워크숍에서 제공하는 계정을 사용합니다. 브라우저 팝업이 차단되면 주소창 오른쪽 아이콘에서 허용해 주세요.
 </Callout>
 
@@ -170,7 +170,7 @@ Claude Code가 필요한 패키지를 설치(`npm install`)하고, 개발 서버
 http://localhost:5173
 ```
 
-<Callout type="info">
+<Callout type="info" emoji="💻">
 **localhost가 뭔가요?**
 `localhost`는 **내 컴퓨터 자체**를 가리키는 주소입니다. 즉, 지금 실행한 앱은 인터넷이 아니라 **내 컴퓨터 안에서만** 동작합니다. 나만 접속할 수 있어서 테스트하기 안전합니다.
 뒤의 숫자(예: `5173`)는 **포트 번호**로, 여러 프로그램이 같은 컴퓨터에서 겹치지 않도록 구분하는 번호입니다.
@@ -186,7 +186,7 @@ http://localhost:5173
 >
 > 세 가지 모두 Yes면 로컬 개발 환경이 정상적으로 준비된 것입니다.
 
-<Callout type="warning">
+<Callout type="warning" emoji="⚙️">
 **개발 서버는 계속 실행 상태여야 합니다.**
 Claude Code가 실행한 `npm run dev`는 **서버**입니다. VS Code 하단 터미널에 실행 로그가 계속 남아 있어야 브라우저에서 접속할 수 있습니다.
 터미널을 닫거나 Claude Code에게 "종료해줘"라고 요청하면 `localhost`에서 더 이상 접속되지 않습니다.

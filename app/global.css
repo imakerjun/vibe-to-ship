@@ -258,11 +258,25 @@ article .nextra-callout {
   border: none !important;
   border-left: none !important;
   border-radius: 6px !important;
-  padding: 14px 16px !important;
+  padding: 14px 16px 14px 14px !important;
   margin: 1rem 0 !important;
   background: var(--callout-gray-bg) !important;
   color: var(--text-body) !important;
   box-shadow: none !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+}
+
+/* Notion-style emoji: 큰 글리프, 본문과 같은 정렬선 */
+.nextra-callout > :first-child,
+div[class*="nextra-callout"] > :first-child {
+  flex: 0 0 auto !important;
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+  width: 1.5rem !important;
+  text-align: center !important;
+  margin-top: 0.05rem !important;
 }
 
 /* Type variants — Nextra applies type via class names containing the color */
