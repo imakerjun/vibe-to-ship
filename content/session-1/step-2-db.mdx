@@ -49,11 +49,31 @@ Lovable Cloud를 사용해서 데이터를 저장해줘.
 
 활성화가 끝나면 Lovable이 알아서 DB 테이블을 생성하고 코드를 연결합니다.
 
+### 생성된 데이터베이스 확인하기
+
+DB가 잘 만들어졌는지 직접 확인해봅니다.
+
+**1단계**: 상단 메뉴에서 **구름 모양 Cloud 버튼**을 클릭한 뒤, 좌측 사이드바에서 **Database**를 선택합니다.
+
+<img src="/images/lovable-cloud-database-tab.png" alt="Lovable 상단 Cloud 버튼 → 좌측 Database 메뉴 클릭" style={{maxWidth: '720px', width: '100%', borderRadius: '12px', border: '1px solid #333', marginTop: '1rem'}} />
+
+**2단계**: 생성된 테이블(예: `check_items`)을 클릭하면 실제로 저장된 데이터를 확인할 수 있습니다.
+
+<img src="/images/lovable-cloud-database-rows.png" alt="check_items 테이블의 6개 행 데이터 — id, title, category, checked, memo 컬럼" style={{maxWidth: '720px', width: '100%', borderRadius: '12px', border: '1px solid #333', marginTop: '1rem'}} />
+
+<Callout type="info">
+**여기서 보이는 것들**
+- 프롬프트로 요청한 샘플 데이터 6건이 실제로 저장되어 있습니다
+- 각 컬럼(id / title / category / checked / memo)이 자동으로 생성되었습니다
+- 이 화면에서 직접 데이터를 추가/수정/삭제할 수도 있습니다 (셀 더블클릭)
+</Callout>
+
 ### 동작 확인하기
 
-1. 항목을 체크합니다
+1. 앱 프리뷰로 돌아가서 항목을 체크합니다
 2. 브라우저를 **새로고침**합니다
 3. 체크 상태가 유지되는지 확인합니다
+4. Database 화면에서 **Refresh**를 누르면 `checked` 값이 `true`로 바뀐 것을 확인할 수 있습니다
 
 ### 관리 기능 추가하기
 
